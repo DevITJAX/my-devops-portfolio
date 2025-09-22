@@ -59,4 +59,15 @@ export const projects = [
     githubUrl: "https://github.com/DevITJAX/PersonaMirror",
     featured: false
   }
+  ,
+  {
+    id: 7,
+    title: "DevOps Projects v1 · Vagrant Box",
+    description: "Minimal Ubuntu Server Vagrant setup to practice DevOps workflows, provisioning, and reproducible environments.",
+    image: "/api/placeholder/600/400",
+    technologies: ["Vagrant", "VirtualBox", "Ubuntu", "Shell"],
+    liveUrl: "https://github.com/DevITJAX/DevOps-Projects-v1-vagrant-box",
+    githubUrl: "https://github.com/DevITJAX/DevOps-Projects-v1-vagrant-box",
+    featured: false
+  }
 ]
