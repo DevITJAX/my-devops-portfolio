@@ -3,7 +3,7 @@ export const experience = [
     id: 1,
     title: "Internship",
     company: "INTELLCAP SARL",
-    location: "Rabat, Rabat-Salé-Kénitra, Morocco · Remote",
+    location: "Rabat, Morocco · Remote",
     period: "Jul 2025 - Sep 2025",
     description: "During my internship at IntellCap, I contributed to the MR Booking project by designing user-friendly UI/UX prototypes using Figma, enhancing the visual and functional experience of web pages. I collaborated with the team using Jira to track and document the work, ensuring seamless integration with project goals. Additionally, I utilized Docker to containerize an AI-driven data service for ERP solutions, streamlining data processing and system scalability.",
     technologies: ["Jira", "Artificial Intelligence (AI)", "Docker", "Figma", "UI/UX Design", "ERP Integration"],
