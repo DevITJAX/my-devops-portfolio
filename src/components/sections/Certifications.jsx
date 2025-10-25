@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { Award, ExternalLink, Calendar, Building2 } from 'lucide-react'
 import { certifications } from '../../data/certifications'
 
 const Certifications = () => {
-  const [activeFilter, setActiveFilter] = useState('all')
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,36 +24,6 @@ const Certifications = () => {
       }
     }
   }
-
-  const filters = [
-    { key: 'all', label: 'All Certifications' },
-    { key: 'cloud', label: 'Cloud & DevOps' },
-    { key: 'development', label: 'Development' },
-    { key: 'system', label: 'System Admin' }
-  ]
-
-  const getFilteredCertifications = () => {
-    if (activeFilter === 'all') return certifications
-    
-    return certifications.filter(cert => {
-      const techString = cert.technologies.join(' ').toLowerCase()
-      switch (activeFilter) {
-        case 'cloud':
-          return techString.includes('aws') || techString.includes('azure') || 
-                 techString.includes('docker') || techString.includes('kubernetes') ||
-                 techString.includes('cloud') || techString.includes('devops')
-        case 'development':
-          return techString.includes('github') || techString.includes('ci/cd') ||
-                 techString.includes('automation')
-        case 'system':
-          return techString.includes('linux') || techString.includes('system')
-        default:
-          return true
-      }
-    })
-  }
-
-  const filteredCertifications = getFilteredCertifications()
 
   return (
     <section id="certifications" className="section bg-gray-800">
@@ -78,29 +46,12 @@ const Certifications = () => {
             </p>
           </motion.div>
 
-          {/* Filter Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
-            {filters.map((filter) => (
-              <button
-                key={filter.key}
-                onClick={() => setActiveFilter(filter.key)}
-                className={`px-6 py-2 rounded-full font-semibold transition-colors duration-200 ${
-                  activeFilter === filter.key
-                    ? 'bg-primary-500 text-white'
-                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                }`}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </motion.div>
-
           {/* Certifications Grid */}
           <motion.div 
             variants={containerVariants}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredCertifications.map((cert) => (
+            {certifications.map((cert) => (
               <motion.div
                 key={cert.id}
                 variants={itemVariants}
@@ -164,13 +115,13 @@ const Certifications = () => {
           </motion.div>
 
           {/* No Certifications Message */}
-          {filteredCertifications.length === 0 && (
+          {certifications.length === 0 && (
             <motion.div
               variants={itemVariants}
               className="text-center py-12"
             >
               <Award className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <p className="text-gray-400 text-lg">No certifications found for this filter.</p>
+              <p className="text-gray-400 text-lg">No certifications found.</p>
             </motion.div>
           )}
 

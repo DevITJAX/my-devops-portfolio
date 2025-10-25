@@ -167,15 +167,15 @@ export const certifications = [
   },
   {
     id: 16,
-    title: "Microsoft Azure Security Engineer Associate (AZ-500)",
-    issuer: "Microsoft",
+    title: "Google Cloud Fundamentals: Core Infrastructure",
+    issuer: "Google Cloud",
     date: "2025",
-    credentialId: "AZ-500-2025",
-    description: "Implementing security controls and threat protection, managing identity and access, and protecting data, applications, and networks. Currently preparing for this certification.",
-    technologies: ["Azure Security", "Security Controls", "Identity Management", "Threat Protection", "Network Security"],
-    verificationUrl: "https://learn.microsoft.com/certifications/azure-security-engineer",
+    credentialId: "GCP-CORE-2025",
+    description: "Foundational understanding of Google Cloud Platform services, architecture, and infrastructure fundamentals.",
+    technologies: ["Google Cloud", "Cloud Computing", "Infrastructure", "Cloud Architecture"],
+    verificationUrl: "https://coursera.org/verify",
     featured: true,
-    status: "preparing"
+    status: "in-progress"
   },
   {
     id: 17,
@@ -203,14 +203,14 @@ export const certifications = [
   },
   {
     id: 19,
-    title: "AWS Cloud Solutions Architect Professional Certificate",
-    issuer: "Amazon Web Services",
+    title: "ServiceNow System Administrator",
+    issuer: "Packt",
     date: "2025",
-    credentialId: "AWS-SAP-2025",
-    description: "Advanced AWS cloud architecture design and implementation. Currently preparing for this professional-level certification.",
-    technologies: ["AWS", "Cloud Architecture", "Solutions Design", "AWS Services", "Cloud Migration"],
-    verificationUrl: "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
+    credentialId: "SERVICENOW-SA-2025",
+    description: "Comprehensive training covering ServiceNow platform administration, configuration, and system management from zero to hero.",
+    technologies: ["ServiceNow", "System Administration", "ITSM", "Platform Configuration"],
+    verificationUrl: "https://www.packtpub.com/",
     featured: true,
-    status: "preparing"
+    status: "in-progress"
   }
 ]
