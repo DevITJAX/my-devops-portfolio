@@ -25,6 +25,13 @@ const Certifications = () => {
     }
   }
 
+  // Sort certifications: in-progress first, then others
+  const sortedCertifications = [...certifications].sort((a, b) => {
+    if (a.status === 'in-progress' && b.status !== 'in-progress') return -1
+    if (a.status !== 'in-progress' && b.status === 'in-progress') return 1
+    return 0
+  })
+
   return (
     <section id="certifications" className="section bg-gray-800">
       <div className="container mx-auto px-4">
@@ -51,7 +58,7 @@ const Certifications = () => {
             variants={containerVariants}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {certifications.map((cert) => (
+            {sortedCertifications.map((cert) => (
               <motion.div
                 key={cert.id}
                 variants={itemVariants}
