@@ -40,16 +40,6 @@ export const projects = [
     featured: false
   },
   {
-    id: 5,
-    title: "AllMightGPT",
-    description: "AI-powered web application showcasing integration with GPT models. Demonstrates modern web development and AI integration skills.",
-    image: "/api/placeholder/600/400",
-    technologies: ["HTML", "CSS", "JavaScript", "OpenAI API"],
-    liveUrl: "https://github.com/DevITJAX/AllMightGPT",
-    githubUrl: "https://github.com/DevITJAX/AllMightGPT",
-    featured: true
-  },
-  {
     id: 6,
     title: "PersonaMirror",
     description: "AI-powered personality analysis and reflection web application. Uses machine learning algorithms to provide personalized insights and character analysis.",
