@@ -135,24 +135,23 @@ const Hero = () => {
               <span>Get In Touch</span>
             </motion.a>
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.button
-            onClick={scrollToAbout}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
-            aria-label="Scroll down"
+          {/* Scroll Indicator moved under buttons */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="mt-8 flex justify-center"
           >
-            <ChevronDown size={24} />
-          </motion.button>
+            <motion.button
+              onClick={scrollToAbout}
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+              aria-label="Scroll down"
+            >
+              <ChevronDown size={24} />
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
