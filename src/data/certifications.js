@@ -212,5 +212,29 @@ export const certifications = [
     verificationUrl: "https://www.packtpub.com/",
     featured: true,
     status: "in-progress"
+  },
+  {
+    id: 20,
+    title: "Oracle Cloud Infrastructure 2025 Certified DevOps Professional",
+    issuer: "Oracle",
+    date: "2025",
+    credentialId: "OCI-DEVOPS-2025",
+    description: "Professional certification demonstrating expertise in Oracle Cloud Infrastructure DevOps practices, CI/CD pipelines, and cloud-native development.",
+    technologies: ["Oracle Cloud", "OCI", "DevOps", "CI/CD", "Cloud Infrastructure"],
+    verificationUrl: "https://www.credly.com/users/abdessamad-admairi/badges",
+    featured: true,
+    status: "earned"
+  },
+  {
+    id: 21,
+    title: "Oracle Cloud Infrastructure 2025 Certified Multicloud Architect",
+    issuer: "Oracle",
+    date: "2025",
+    credentialId: "OCI-MULTICLOUD-2025",
+    description: "Professional certification validating skills in designing and implementing multicloud solutions using Oracle Cloud Infrastructure.",
+    technologies: ["Oracle Cloud", "OCI", "Multicloud Architecture", "Cloud Architecture", "Hybrid Cloud"],
+    verificationUrl: "https://www.credly.com/users/abdessamad-admairi/badges",
+    featured: true,
+    status: "earned"
   }
 ]
