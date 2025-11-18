@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react'
 import { personalInfo } from '../../data/personal'
@@ -14,6 +14,11 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
 
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+  }, [])
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -27,7 +32,7 @@ const Contact = () => {
     
     try {
       // Send email using EmailJS
-      await emailjs.send(
+      const result = await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
@@ -35,10 +40,10 @@ const Contact = () => {
           email: formData.email,
           subject: formData.subject,
           message: formData.message
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        }
       )
       
+      console.log('Email sent successfully:', result)
       setIsSubmitting(false)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
