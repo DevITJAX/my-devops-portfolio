@@ -73,28 +73,29 @@ export const certifications = [
   },
   {
     id: 7,
-    title: "IBM DevOps and Software Engineering",
-    issuer: "IBM",
-    date: "2024",
-    credentialId: "IBM-DEVOPS-2024",
-    description: "Comprehensive professional certificate covering DevOps practices, software engineering principles, and modern development methodologies.",
-    technologies: ["DevOps", "Software Engineering", "CI/CD", "IBM Cloud"],
-    verificationUrl: "https://coursera.org/verify",
-    featured: true
-  },
-  {
-    id: 7,
-    title: "IBM DevOps and Software Engineering",
-    issuer: "IBM",
-    date: "2024",
-    credentialId: "IBM-DEVOPS-2024",
-    description: "Comprehensive professional certificate covering DevOps practices, software engineering principles, and modern development methodologies.",
-    technologies: ["DevOps", "Software Engineering", "CI/CD", "IBM Cloud"],
-    verificationUrl: "https://coursera.org/verify",
-    featured: true
+    title: "GitHub Foundations",
+    issuer: "GitHub",
+    date: "2025",
+    credentialId: "GITHUB-FOUNDATIONS-2025",
+    description: "GitHub Foundations Certification Program validating fundamental knowledge of GitHub products, Git basics, and collaborative development workflows.",
+    technologies: ["GitHub", "Git", "Version Control", "Collaboration", "DevOps"],
+    verificationUrl: "https://www.credly.com/users/abdessamad-admairi/badges",
+    featured: true,
+    status: "earned"
   },
   {
     id: 8,
+    title: "IBM DevOps and Software Engineering",
+    issuer: "IBM",
+    date: "2024",
+    credentialId: "IBM-DEVOPS-2024",
+    description: "Comprehensive professional certificate covering DevOps practices, software engineering principles, and modern development methodologies.",
+    technologies: ["DevOps", "Software Engineering", "CI/CD", "IBM Cloud"],
+    verificationUrl: "https://coursera.org/verify",
+    featured: true
+  },
+  {
+    id: 9,
     title: "Introduction to Containers w/ Docker, Kubernetes & OpenShift",
     issuer: "Coursera",
     date: "2024",
@@ -105,7 +106,7 @@ export const certifications = [
     featured: true
   },
   {
-    id: 9,
+    id: 10,
     title: "Introduction to Microsoft Azure Cloud Services",
     issuer: "Microsoft",
     date: "2024",
@@ -116,7 +117,7 @@ export const certifications = [
     featured: true
   },
   {
-    id: 10,
+    id: 11,
     title: "Virtual Networks in Azure",
     issuer: "Microsoft",
     date: "2024",
@@ -127,7 +128,7 @@ export const certifications = [
     featured: true
   },
   {
-    id: 11,
+    id: 12,
     title: "Microsoft Azure Fundamentals (AZ-900)",
     issuer: "Microsoft",
     date: "2025",
@@ -139,7 +140,7 @@ export const certifications = [
     status: "preparing"
   },
   {
-    id: 12,
+    id: 13,
     title: "Software Engineering: Software Design and Project Management",
     issuer: "Duke University",
     date: "2023",
@@ -150,7 +151,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 13,
+    id: 14,
     title: "Introduction to Git and GitHub",
     issuer: "Google",
     date: "2023",
@@ -161,7 +162,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 14,
+    id: 15,
     title: "React Basics",
     issuer: "Meta",
     date: "2023",
@@ -172,7 +173,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 15,
+    id: 16,
     title: "React Native",
     issuer: "Meta",
     date: "2023",
@@ -183,7 +184,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 16,
+    id: 17,
     title: "The Unix Workbench",
     issuer: "Johns Hopkins University",
     date: "2022",
@@ -194,7 +195,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 17,
+    id: 18,
     title: "Introduction to Java and Object-Oriented Programming",
     issuer: "Duke University",
     date: "2022",
@@ -205,7 +206,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 18,
+    id: 19,
     title: "Introduction à la programmation orientée objet (en C++)",
     issuer: "École Polytechnique Fédérale de Lausanne",
     date: "2022",
@@ -216,7 +217,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 19,
+    id: 20,
     title: "Programming for Everybody (Getting Started with Python)",
     issuer: "University of Michigan",
     date: "2022",
@@ -227,7 +228,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 20,
+    id: 21,
     title: "Interactivity with JavaScript",
     issuer: "University of Michigan",
     date: "2022",
@@ -238,7 +239,7 @@ export const certifications = [
     featured: false
   },
   {
-    id: 21,
+    id: 22,
     title: "Introduction to CSS3 / Introduction to HTML5",
     issuer: "University of Michigan",
     date: "2022",

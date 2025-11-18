@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react'
 import { personalInfo } from '../../data/personal'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,15 +25,34 @@ const Contact = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      
       setIsSubmitting(false)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
       
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus(null), 3000)
-    }, 2000)
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+      setIsSubmitting(false)
+      setSubmitStatus('error')
+      
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000)
+    }
   }
 
   const socialLinks = [
@@ -270,7 +290,18 @@ const Contact = () => {
                       animate={{ opacity: 1, y: 0 }}
                       className="bg-cyan-500/10 border border-cyan-500 text-cyan-400 px-4 py-3 rounded-lg text-center"
                     >
-                      Thanks for your message! I'll get back to you soon.
+                      ✓ Thanks for your message! I'll get back to you soon.
+                    </motion.div>
+                  )}
+
+                  {/* Error Message */}
+                  {submitStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-red-500/10 border border-red-500 text-red-400 px-4 py-3 rounded-lg text-center"
+                    >
+                      ✗ Something went wrong. Please try again or email me directly.
                     </motion.div>
                   )}
                 </form>
