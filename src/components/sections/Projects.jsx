@@ -8,8 +8,8 @@ const Projects = () => {
   const [showFilters, setShowFilters] = useState(false)
 
   const allTechnologies = [...new Set(projects.flatMap(project => project.technologies))]
-  const filteredProjects = filter === 'all' 
-    ? projects 
+  const filteredProjects = filter === 'all'
+    ? projects
     : projects.filter(project => project.technologies.includes(filter))
 
   const containerVariants = {
@@ -94,11 +94,10 @@ const Projects = () => {
                 <div className="flex flex-wrap gap-2">
                   <button
                     onClick={() => setFilter('all')}
-                    className={`px-3 py-1 rounded-full text-sm font-mono transition-colors ${
-                      filter === 'all'
+                    className={`px-3 py-1 rounded-full text-sm font-mono transition-colors ${filter === 'all'
                         ? 'bg-primary-500 text-white'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                    }`}
+                      }`}
                   >
                     All Projects
                   </button>
@@ -106,11 +105,10 @@ const Projects = () => {
                     <button
                       key={tech}
                       onClick={() => setFilter(tech)}
-                      className={`px-3 py-1 rounded-full text-sm font-mono transition-colors ${
-                        filter === tech
+                      className={`px-3 py-1 rounded-full text-sm font-mono transition-colors ${filter === tech
                           ? 'bg-primary-500 text-white'
                           : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                      }`}
+                        }`}
                     >
                       {tech}
                     </button>
@@ -134,14 +132,23 @@ const Projects = () => {
               >
                 {/* Project Image */}
                 <div className="relative h-48 bg-gray-700 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center">
-                    <div className="text-6xl opacity-20">
-                      {project.technologies[0] === 'React' ? '⚛️' : 
-                       project.technologies[0] === 'Vue.js' ? '💚' :
-                       project.technologies[0] === 'Node.js' ? '🟢' : '💻'}
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center">
+                      <div className="text-6xl opacity-20">
+                        {project.technologies[0] === 'React' ? '⚛️' :
+                          project.technologies[0] === 'Vue.js' ? '💚' :
+                            project.technologies[0] === 'Node.js' ? '🟢' : '💻'}
+                      </div>
                     </div>
-                  </div>
-                  
+                  )}
+
                   {/* Featured Badge */}
                   {project.featured && (
                     <div className="absolute top-4 left-4 bg-primary-500 text-white px-2 py-1 rounded text-xs font-semibold">
@@ -170,7 +177,7 @@ const Projects = () => {
                   <h3 className="text-xl font-bold text-white mb-2">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
