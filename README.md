@@ -52,7 +52,7 @@ npm run preview
 
 ## 🌐 Live Demo
 
-[View Portfolio](https://devitjax.github.io/my-devops-portfolio)
+[View Portfolio](https://www.abdessamadadmairi.me/)
 
 ## 📁 Project Structure
 
