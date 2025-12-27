@@ -17,7 +17,7 @@ function App() {
       <div className="min-h-screen bg-gray-900 text-white">
         <ScrollToTop />
         <Header />
-        <main>
+        <main id="main-content" role="main" aria-label="Main content">
           <Hero />
           <About />
           <Skills />
@@ -33,3 +33,4 @@ function App() {
 }
 
 export default App
+

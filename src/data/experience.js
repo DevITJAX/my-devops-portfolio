@@ -1,10 +1,10 @@
 export const experience = [
   {
     id: 1,
-    title: "Internship",
+    title: "UI/UX & DevOps Intern",
     company: "INTELLCAP SARL",
     location: "Rabat, Morocco · Remote",
-    period: "Jul 2025 - Sep 2025",
+    period: "Jul 2024 - Sep 2024",
     description: "During my internship at IntellCap, I contributed to the MR Booking project by designing user-friendly UI/UX prototypes using Figma, enhancing the visual and functional experience of web pages. I collaborated with the team using Jira to track and document the work, ensuring seamless integration with project goals. Additionally, I utilized Docker to containerize an AI-driven data service for ERP solutions, streamlining data processing and system scalability.",
     technologies: ["Jira", "Artificial Intelligence (AI)", "Docker", "Figma", "UI/UX Design", "ERP Integration"],
     achievements: [
@@ -19,7 +19,7 @@ export const experience = [
     title: "DevOps & Cloud Engineer Intern",
     company: "Direction Générale de l'Hydraulique",
     location: "Rabat, Morocco",
-    period: "July 2025 - August 2025",
+    period: "Jul 2024 - Aug 2024",
     description: "Developed and deployed 'DGH Helpdesk,' a comprehensive IT support automation platform from scratch. Led the complete DevOps and cloud infrastructure implementation, focusing on containerization, CI/CD pipelines, and Azure cloud deployment strategies.",
     technologies: ["Azure", "Docker", "Kubernetes", "GitHub Actions", "Spring Boot", "LDAP", "CI/CD", "Container Registry"],
     achievements: [

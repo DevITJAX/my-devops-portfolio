@@ -18,12 +18,14 @@ export const skillCategories = {
     icon: "🚀",
     skills: [
       { name: "Azure", level: 85 },
+      { name: "AWS", level: 75 },
       { name: "Docker", level: 90 },
       { name: "Kubernetes", level: 80 },
+      { name: "Terraform", level: 78 },
+      { name: "Ansible", level: 72 },
       { name: "GitHub Actions", level: 88 },
+      { name: "Jenkins", level: 70 },
       { name: "Git", level: 95 },
-      { name: "Virtual Machines", level: 85 },
-      { name: "Container Registry", level: 80 },
       { name: "Docker Compose", level: 85 }
     ]
   },

@@ -25,6 +25,18 @@ export const certifications = [
   },
   {
     id: 3,
+    title: "Microsoft Azure Fundamentals (AZ-900)",
+    issuer: "Microsoft",
+    date: "2025",
+    credentialId: "AZ-900-2025",
+    description: "Foundational level understanding of cloud services and how those services are provided with Microsoft Azure. Validates knowledge of cloud concepts, Azure services, Azure workloads, security, privacy, pricing, and support.",
+    technologies: ["Azure Fundamentals", "Cloud Computing", "Azure Services", "Cloud Concepts"],
+    verificationUrl: "https://learn.microsoft.com/certifications/azure-fundamentals",
+    featured: true,
+    status: "earned"
+  },
+  {
+    id: 4,
     title: "Microsoft Azure DevOps Engineer Expert (AZ-400)",
     issuer: "Microsoft",
     date: "2025",
@@ -36,7 +48,7 @@ export const certifications = [
     status: "preparing"
   },
   {
-    id: 4,
+    id: 5,
     title: "AWS Cloud Technical Essentials",
     issuer: "Amazon Web Services",
     date: "2025",
@@ -48,7 +60,7 @@ export const certifications = [
     status: "preparing"
   },
   {
-    id: 5,
+    id: 6,
     title: "ServiceNow System Administrator",
     issuer: "Packt",
     date: "2025",
@@ -60,7 +72,7 @@ export const certifications = [
     status: "in-progress"
   },
   {
-    id: 6,
+    id: 7,
     title: "Google Cloud Fundamentals: Core Infrastructure",
     issuer: "Google Cloud",
     date: "2025",
@@ -72,7 +84,7 @@ export const certifications = [
     status: "in-progress"
   },
   {
-    id: 7,
+    id: 8,
     title: "GitHub Foundations",
     issuer: "GitHub",
     date: "2025",
@@ -84,7 +96,7 @@ export const certifications = [
     status: "earned"
   },
   {
-    id: 8,
+    id: 9,
     title: "IBM DevOps and Software Engineering",
     issuer: "IBM",
     date: "2024",
@@ -95,7 +107,7 @@ export const certifications = [
     featured: true
   },
   {
-    id: 9,
+    id: 10,
     title: "Introduction to Containers w/ Docker, Kubernetes & OpenShift",
     issuer: "Coursera",
     date: "2024",
@@ -106,7 +118,7 @@ export const certifications = [
     featured: true
   },
   {
-    id: 10,
+    id: 11,
     title: "Introduction to Microsoft Azure Cloud Services",
     issuer: "Microsoft",
     date: "2024",
@@ -117,7 +129,7 @@ export const certifications = [
     featured: true
   },
   {
-    id: 11,
+    id: 12,
     title: "Virtual Networks in Azure",
     issuer: "Microsoft",
     date: "2024",
@@ -126,18 +138,6 @@ export const certifications = [
     technologies: ["Azure", "Virtual Networks", "Cloud Networking", "Azure Security"],
     verificationUrl: "https://coursera.org/verify",
     featured: true
-  },
-  {
-    id: 12,
-    title: "Microsoft Azure Fundamentals (AZ-900)",
-    issuer: "Microsoft",
-    date: "2025",
-    credentialId: "AZ-900-2025",
-    description: "Foundational level understanding of cloud services and how those services are provided with Microsoft Azure. Currently preparing for this certification.",
-    technologies: ["Azure Fundamentals", "Cloud Computing", "Azure Services", "Cloud Concepts"],
-    verificationUrl: "https://learn.microsoft.com/certifications/azure-fundamentals",
-    featured: false,
-    status: "preparing"
   },
   {
     id: 13,
