@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Filter, X } from 'lucide-react'
+import { Github } from 'lucide-react'
 import { projects } from '../../data/projects'
 
 const Projects = () => {
   const [filter, setFilter] = useState('all')
-  const [showFilters, setShowFilters] = useState(false)
 
-  const allTechnologies = [...new Set(projects.flatMap(project => project.technologies))]
+  // Get unique categories from projects
+  const allCategories = [...new Set(projects.map(project => project.category))]
+
   const filteredProjects = filter === 'all'
     ? projects
-    : projects.filter(project => project.technologies.includes(filter))
+    : projects.filter(project => project.category === filter)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,7 +45,7 @@ const Projects = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="font-mono text-primary-400">.projects()</span>
             </h2>
@@ -54,68 +55,40 @@ const Projects = () => {
             </p>
           </motion.div>
 
-          {/* Filter Controls */}
+          {/* Category Filter Tabs */}
           <motion.div variants={itemVariants} className="mb-12">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              {/* Filter Button */}
+            <div className="flex flex-wrap justify-center gap-3">
               <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center space-x-2 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors"
+                onClick={() => setFilter('all')}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === 'all'
+                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
+                  }`}
               >
-                <Filter size={20} />
-                <span>Filter by Technology</span>
+                All Projects
+                <span className="ml-2 px-2 py-0.5 bg-black/20 rounded-full text-xs">
+                  {projects.length}
+                </span>
               </button>
-
-              {/* Active Filter Display */}
-              {filter !== 'all' && (
-                <div className="flex items-center space-x-2">
-                  <span className="text-gray-400">Filtered by:</span>
-                  <span className="px-3 py-1 bg-primary-500 text-white rounded-full text-sm font-mono">
-                    {filter}
-                  </span>
+              {allCategories.map((category) => {
+                const count = projects.filter(p => p.category === category).length
+                return (
                   <button
-                    onClick={() => setFilter('all')}
-                    className="text-gray-400 hover:text-white"
-                  >
-                    <X size={16} />
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Filter Options */}
-            {showFilters && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mt-4 p-4 bg-gray-800 rounded-lg"
-              >
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => setFilter('all')}
-                    className={`px-3 py-1 rounded-full text-sm font-mono transition-colors ${filter === 'all'
-                        ? 'bg-primary-500 text-white'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    key={category}
+                    onClick={() => setFilter(category)}
+                    className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === category
+                      ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
+                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
                       }`}
                   >
-                    All Projects
+                    {category}
+                    <span className="ml-2 px-2 py-0.5 bg-black/20 rounded-full text-xs">
+                      {count}
+                    </span>
                   </button>
-                  {allTechnologies.map((tech) => (
-                    <button
-                      key={tech}
-                      onClick={() => setFilter(tech)}
-                      className={`px-3 py-1 rounded-full text-sm font-mono transition-colors ${filter === tech
-                          ? 'bg-primary-500 text-white'
-                          : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                        }`}
-                    >
-                      {tech}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+                )
+              })}
+            </div>
           </motion.div>
 
           {/* Projects Grid */}
