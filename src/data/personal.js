@@ -8,6 +8,7 @@ export const personalInfo = {
   social: {
     github: "https://github.com/DevITJAX",
     linkedin: "https://www.linkedin.com/in/admairi-abdessamad/",
+    email: "mailto:abdessamadadmairi@gmail.com"
   },
   resume: "/resume.pdf",
   availability: "Available for PFE Internship"
