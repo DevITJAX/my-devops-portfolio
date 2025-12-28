@@ -219,7 +219,7 @@ const Projects = () => {
             <div className="text-gray-300 space-y-1">
               <div>Total Projects: {projects.length}</div>
               <div>Featured: {projects.filter(p => p.featured).length}</div>
-              <div>Technologies: {allTechnologies.length}+</div>
+              <div>Categories: {allCategories.length}</div>
               <div>Status: All projects deployed and maintained</div>
             </div>
           </motion.div>
