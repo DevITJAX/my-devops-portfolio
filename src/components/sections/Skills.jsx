@@ -16,21 +16,34 @@ const Skills = () => {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   }
 
   const categoryKeys = Object.keys(skillCategories)
 
+  // Combine current category skills with additional skills
+  const additionalSkills = [
+    'Infrastructure as Code',
+    'CI/CD Pipelines',
+    'Container Orchestration',
+    'Cloud Security',
+    'Monitoring & Logging',
+    'Microservices Architecture',
+    'Automation Scripting',
+    'Cloud Migration'
+  ]
+
   return (
-    <section id="skills" className="section bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="section bg-[#161616] dot-grid">
+      <div className="container mx-auto px-6">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -39,134 +52,76 @@ const Skills = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="font-mono text-primary-400">.skills()</span>
+          <motion.div variants={itemVariants} className="mb-16">
+            <span className="font-mono text-xs text-[#c8ff00] tracking-widest uppercase mb-3 block">
+              02 — Skills
+            </span>
+            <h2 className="heading-serif text-5xl md:text-6xl text-[#f0ede6] mb-4">
+              What I Use
             </h2>
-            <div className="w-24 h-1 bg-primary-400 mx-auto rounded mb-6"></div>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Technologies and tools I use to bring ideas to life
-            </p>
+            <div className="section-divider"></div>
           </motion.div>
 
           {/* Category Tabs */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-2 mb-12">
             {categoryKeys.map((categoryKey) => {
               const category = skillCategories[categoryKey]
               return (
                 <button
                   key={categoryKey}
                   onClick={() => setActiveCategory(categoryKey)}
-                  className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 ${
+                  className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center space-x-2 ${
                     activeCategory === categoryKey
-                      ? 'bg-primary-500 text-white'
-                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                      ? 'bg-[#c8ff00] text-[#0d0d0d]'
+                      : 'bg-[#1e1e1e] text-[#b8b2a6] border border-[#2a2a2a] hover:border-[#c8ff00]/30 hover:text-[#f0ede6]'
                   }`}
                 >
-                  <span className="text-xl">{category.icon}</span>
+                  <span>{category.icon}</span>
                   <span>{category.title}</span>
                 </button>
               )
             })}
           </motion.div>
 
-          {/* Skills Grid */}
+          {/* Skills Tag Cloud */}
           <motion.div
             key={activeCategory}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            transition={{ duration: 0.4 }}
+            className="flex flex-wrap gap-3 mb-16"
           >
             {skillCategories[activeCategory].skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800 p-6 rounded-lg hover-lift"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.04 }}
+                whileHover={{ scale: 1.06, y: -2 }}
+                className="group px-5 py-3 bg-[#0d0d0d] border border-[#2a2a2a] rounded-lg cursor-default transition-all duration-200 hover:border-[#c8ff00] hover:shadow-[0_0_20px_rgba(200,255,0,0.06)]"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-semibold text-white">
-                    {skill.name}
-                  </h3>
-                  <span className="text-primary-400 font-mono text-sm">
-                    {skill.level}%
-                  </span>
-                </div>
-                
-                {/* Progress Bar */}
-                <div className="w-full bg-gray-700 rounded-full h-2 mb-3">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                    className="bg-gradient-to-r from-primary-400 to-primary-600 h-2 rounded-full"
-                  />
-                </div>
-
-                {/* Skill Level Indicator */}
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-2 h-2 rounded-full ${
-                        i < Math.floor(skill.level / 20)
-                          ? 'bg-primary-400'
-                          : 'bg-gray-600'
-                      }`}
-                    />
-                  ))}
-                </div>
+                <span className="text-[#f0ede6] text-sm font-medium group-hover:text-[#c8ff00] transition-colors">
+                  {skill.name}
+                </span>
               </motion.div>
             ))}
           </motion.div>
 
           {/* Additional Skills */}
-          <motion.div variants={itemVariants} className="mt-16">
-            <h3 className="text-2xl font-bold text-center mb-8 text-white">
-              Additional Skills
+          <motion.div variants={itemVariants}>
+            <h3 className="font-mono text-xs text-[#7d7568] tracking-widest uppercase mb-6">
+              Also Experienced With
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                'Infrastructure as Code',
-                'CI/CD Pipelines',
-                'Container Orchestration',
-                'Cloud Security',
-                'Monitoring & Logging',
-                'Microservices Architecture',
-                'Automation Scripting',
-                'Cloud Migration'
-              ].map((skill) => (
-                <motion.div
+            <div className="flex flex-wrap gap-2">
+              {additionalSkills.map((skill) => (
+                <motion.span
                   key={skill}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-gray-800 p-4 rounded-lg text-center hover-lift"
+                  whileHover={{ scale: 1.04 }}
+                  className="px-4 py-2 bg-[#0d0d0d] border border-[#1f1f1f] rounded text-[#7d7568] text-sm hover:text-[#b8b2a6] hover:border-[#2a2a2a] transition-all duration-200 cursor-default"
                 >
-                  <span className="text-gray-300 text-sm font-medium">
-                    {skill}
-                  </span>
-                </motion.div>
+                  {skill}
+                </motion.span>
               ))}
-            </div>
-          </motion.div>
-
-          {/* Terminal-style Command */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 bg-gray-900 p-6 rounded-lg font-mono text-sm"
-          >
-            <div className="text-gray-500 mb-2">
-              <span className="text-primary-400">abdessamad@portfolio:~$</span> npm list --depth=0
-            </div>
-            <div className="text-gray-300 space-y-1">
-              {skillCategories[activeCategory].skills.slice(0, 5).map((skill) => (
-                <div key={skill.name}>
-                  ├── {skill.name.toLowerCase()}@{skill.level}%
-                </div>
-              ))}
-              <div>└── ... and more!</div>
             </div>
           </motion.div>
         </motion.div>

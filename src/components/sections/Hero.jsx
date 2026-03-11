@@ -1,46 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { ChevronDown, Download, Mail } from 'lucide-react'
+import { ChevronDown, ArrowRight, Mail } from 'lucide-react'
 import { personalInfo } from '../../data/personal'
 
 const Hero = () => {
-  const [displayedText, setDisplayedText] = useState('')
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
-
-  const texts = [
-    'Computer Science Engineering Student',
+  const roles = [
     'DevOps Engineer',
     'Cloud Solutions Architect',
-    'Cloud Infrastructure Specialist',
+    'ServiceNow Consultant',
     'Full-Stack Developer',
     'Kubernetes Specialist',
     'CI/CD Pipeline Expert',
-    'System Administrator'
   ]
-
-  useEffect(() => {
-    const currentText = texts[currentIndex]
-    
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayedText.length < currentText.length) {
-          setDisplayedText(currentText.slice(0, displayedText.length + 1))
-        } else {
-          setTimeout(() => setIsDeleting(true), 2000)
-        }
-      } else {
-        if (displayedText.length > 0) {
-          setDisplayedText(displayedText.slice(0, -1))
-        } else {
-          setIsDeleting(false)
-          setCurrentIndex((prev) => (prev + 1) % texts.length)
-        }
-      }
-    }, isDeleting ? 50 : 100)
-
-    return () => clearTimeout(timeout)
-  }, [displayedText, currentIndex, isDeleting, texts])
 
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
@@ -48,111 +19,116 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,255,0.1),transparent_50%)]"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-[#0d0d0d]">
+        <div className="absolute inset-0 dot-grid opacity-60"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(200,255,0,0.04),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(230,57,70,0.03),transparent_60%)]"></div>
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
-          {/* Greeting */}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Overline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-primary-400 font-mono text-lg mb-4"
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-6"
           >
-            <span className="terminal-prompt">Hello, I'm</span>
+            <span className="font-mono text-sm text-[#c8ff00] tracking-widest uppercase">
+              Computer Science Engineering Student
+            </span>
           </motion.div>
 
-          {/* Name */}
+          {/* Name — Big Serif */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
+            transition={{ delay: 0.4, duration: 0.7 }}
+            className="heading-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-6 leading-[0.9] tracking-tight"
           >
-            <span className="gradient-text">{personalInfo.name}</span>
+            <span className="text-[#f0ede6]">{personalInfo.name.split(' ')[0]}</span>
+            <br />
+            <span className="text-[#c8ff00] italic">{personalInfo.name.split(' ').slice(1).join(' ')}</span>
           </motion.h1>
 
-          {/* Animated Title */}
+          {/* Role Rotator */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="text-2xl md:text-4xl font-mono mb-8 min-h-[3rem]"
+            transition={{ delay: 0.7, duration: 0.6 }}
+            className="mb-8 text-xl md:text-2xl text-[#b8b2a6] font-light"
           >
-            <span className="text-gray-300">I'm a </span>
-            <span className="text-primary-400 typewriter">
-              {displayedText}
-              <span className="animate-blink">|</span>
+            <span className="text-[#7d7568]">I build as a </span>
+            <span className="role-rotator text-[#f0ede6]">
+              <span className="role-rotator-inner">
+                {roles.map((role, i) => (
+                  <span key={i}>{role}</span>
+                ))}
+              </span>
             </span>
           </motion.div>
 
           {/* Brief Description */}
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="mb-12 max-w-4xl mx-auto"
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="text-[#b8b2a6] text-lg max-w-2xl leading-relaxed mb-12"
           >
-            <p className="text-xl text-gray-300 text-center leading-relaxed">
-              I'm a passionate and driven Computer Science Engineering student in my 5th year at EMSI, specializing in DevOps, Cloud Computing, and Full-Stack Development. With hands-on experience in Azure, Docker, Kubernetes, and modern web technologies, I bring ideas to life through code and help businesses build robust, scalable, and automated solutions. I have a strong interest in Infrastructure as Code, CI/CD pipelines, and cloud-native applications. Currently looking for an internship opportunity for my PFE (Projet de Fin d'Études) to further develop my skills and contribute to innovative projects.
-            </p>
-          </motion.div>
+            5th-year EMSI student specializing in DevOps, Cloud Computing, ServiceNow, and Full-Stack Development. 
+            Building robust, scalable infrastructure with Azure, Docker, Kubernetes, Terraform, and ServiceNow.
+          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            transition={{ delay: 1.1, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4"
           >
             <motion.a
               href={personalInfo.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-[#c8ff00] text-[#0d0d0d] px-8 py-3.5 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center justify-center space-x-2 hover:bg-[#b0e000]"
             >
-              <Download size={20} />
               <span>View Resume</span>
+              <ArrowRight size={16} />
             </motion.a>
 
             <motion.a
               href={personalInfo.social.email}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="border border-[#2a2a2a] text-[#f0ede6] hover:border-[#c8ff00] hover:text-[#c8ff00] px-8 py-3.5 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center justify-center space-x-2"
             >
-              <Mail size={20} />
+              <Mail size={16} />
               <span>Get In Touch</span>
             </motion.a>
           </motion.div>
-          {/* Scroll Indicator moved under buttons */}
+
+          {/* Scroll Indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="mt-8 flex justify-center"
+            transition={{ delay: 1.5 }}
+            className="mt-20 flex items-center space-x-3"
           >
             <motion.button
               onClick={scrollToAbout}
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="text-[#7d7568] hover:text-[#c8ff00] transition-colors duration-200"
               aria-label="Scroll down"
             >
-              <ChevronDown size={24} />
+              <ChevronDown size={20} />
             </motion.button>
+            <span className="font-mono text-xs text-[#7d7568] tracking-wide">scroll to explore</span>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

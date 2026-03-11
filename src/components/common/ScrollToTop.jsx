@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronUp } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.scrollY > 300) {
         setIsVisible(true)
       } else {
         setIsVisible(false)
@@ -29,16 +29,15 @@ const ScrollToTop = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.2 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 bg-primary-500 hover:bg-primary-600 text-white p-3 rounded-full shadow-lg transition-colors duration-200"
+          className="fixed bottom-6 right-6 z-40 w-10 h-10 bg-[#c8ff00] text-[#0d0d0d] rounded-lg flex items-center justify-center hover:bg-[#b0e000] transition-colors shadow-lg shadow-[#c8ff00]/10"
           aria-label="Scroll to top"
         >
-          <ChevronUp size={20} />
+          <ArrowUp size={18} />
         </motion.button>
       )}
     </AnimatePresence>

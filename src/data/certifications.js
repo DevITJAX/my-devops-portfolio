@@ -69,7 +69,7 @@ export const certifications = [
     technologies: ["ServiceNow", "System Administration", "ITSM", "Platform Configuration"],
     verificationUrl: "https://www.packtpub.com/",
     featured: true,
-    status: "in-progress"
+    status: "earned"
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ export const certifications = [
     technologies: ["Google Cloud", "Cloud Computing", "Infrastructure", "Cloud Architecture"],
     verificationUrl: "https://coursera.org/verify",
     featured: true,
-    status: "in-progress"
+    status: "earned"
   },
   {
     id: 8,
@@ -104,6 +104,19 @@ export const certifications = [
     description: "Comprehensive professional certificate covering DevOps practices, software engineering principles, and modern development methodologies.",
     technologies: ["DevOps", "Software Engineering", "CI/CD", "IBM Cloud"],
     verificationUrl: "https://coursera.org/verify",
-    featured: true
+    featured: true,
+    status: "earned"
+  },
+  {
+    id: 10,
+    title: "ServiceNow Certified System Administrator (CSA)",
+    issuer: "ServiceNow",
+    date: "2026",
+    credentialId: "CSA-2026",
+    description: "Official ServiceNow certification validating expertise in platform administration, configuration, and IT service management on the ServiceNow platform.",
+    technologies: ["ServiceNow", "ITSM", "System Administration", "Platform Configuration", "IT Operations"],
+    verificationUrl: "https://nowlearning.servicenow.com/",
+    featured: true,
+    status: "preparing"
   }
 ]

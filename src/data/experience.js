@@ -1,5 +1,18 @@
 export const experience = [
   {
+    id: 0,
+    title: "ServiceNow Consultant Intern",
+    company: "DXC Technology Morocco",
+    location: "Morocco · Hybrid",
+    period: "Mar 2026 - Present",
+    description: "Currently working as a ServiceNow Consultant Intern at DXC Technology Morocco, contributing to enterprise IT service management solutions and platform consulting.",
+    technologies: ["ServiceNow", "ITSM", "JavaScript", "IT Consulting", "Cloud Platform"],
+    achievements: [
+      "Contributing to enterprise ServiceNow platform implementations",
+      "Working in a hybrid environment on IT service management solutions"
+    ]
+  },
+  {
     id: 1,
     title: "UI/UX & DevOps Intern",
     company: "INTELLCAP SARL",

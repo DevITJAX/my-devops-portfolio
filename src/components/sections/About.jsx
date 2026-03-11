@@ -9,32 +9,33 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   }
 
   const stats = [
-    { icon: Code, label: 'Projects Completed', value: '10+' },
-    { icon: Coffee, label: 'Cups of Coffee', value: '1000+' },
-    { icon: Calendar, label: 'Academic Year', value: '5th Year' },
-    { icon: MapPin, label: 'Location', value: personalInfo.location }
+    { icon: Code, label: 'Projects', value: '10+' },
+    { icon: Coffee, label: 'Coffee Cups', value: '1000+' },
+    { icon: Calendar, label: 'Year', value: '5th' },
+    { icon: MapPin, label: 'Based In', value: 'Rabat' }
   ]
 
   return (
-    <section id="about" className="section bg-gray-800">
-      <div className="container mx-auto px-4">
+    <section id="about" className="section bg-[#0d0d0d]">
+      <div className="container mx-auto px-6">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -43,105 +44,96 @@ const About = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="font-mono text-primary-400">.about()</span>
+          <motion.div variants={itemVariants} className="mb-16">
+            <span className="font-mono text-xs text-[#c8ff00] tracking-widest uppercase mb-3 block">
+              01 — About
+            </span>
+            <h2 className="heading-serif text-5xl md:text-6xl text-[#f0ede6] mb-4">
+              Who I Am
             </h2>
-            <div className="w-24 h-1 bg-primary-400 mx-auto rounded"></div>
+            <div className="section-divider"></div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Text Content */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="prose prose-lg prose-invert max-w-none">
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  I'm a passionate and driven Computer Science Engineering student in my 5th year at EMSI, specializing in DevOps and Cloud Computing. I have a strong interest in Infrastructure as Code, CI/CD pipelines, and cloud-native solutions, and I enjoy exploring how these technologies can be integrated into modern applications.
-                </p>
-                
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  With hands-on experience in both cloud platforms and DevOps tools, I build robust, scalable, and automated solutions using tools like AWS, Azure, Docker, Kubernetes, Terraform, and Python, along with solid foundations in Linux administration and software engineering principles.
-                </p>
-              </div>
+          <div className="grid lg:grid-cols-5 gap-12">
+            {/* Left Column — Bio (3 cols) */}
+            <motion.div variants={itemVariants} className="lg:col-span-3 space-y-6">
+              <p className="text-[#b8b2a6] text-lg leading-relaxed">
+                I'm a passionate and driven Computer Science Engineering student in my 5th year at EMSI, specializing in DevOps, Cloud Computing, and ServiceNow consulting. I have a strong interest in Infrastructure as Code, CI/CD pipelines, cloud-native solutions, and IT service management, and I enjoy exploring how these technologies can be integrated into modern applications.
+              </p>
+              
+              <p className="text-[#b8b2a6] text-lg leading-relaxed">
+                With hands-on experience in cloud platforms, DevOps tools, and the ServiceNow platform, I build robust, scalable, and automated solutions using tools like AWS, Azure, Docker, Kubernetes, Terraform, ServiceNow, and Python, along with solid foundations in Linux administration and software engineering principles.
+              </p>
 
-              {/* Tech Stack Preview */}
-              <motion.div 
-                variants={itemVariants}
-                className="mt-8"
-              >
-                <h3 className="text-xl font-semibold mb-4 text-primary-400">
-                  Current Tech Stack
+              {/* Tech Stack */}
+              <div className="pt-4">
+                <h3 className="font-mono text-xs text-[#7d7568] tracking-widest uppercase mb-4">
+                  Current Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {['MongoDB', 'Express.js', 'React', 'Node.js', 'Azure', 'AWS', 'Docker', 'Kubernetes', 'Terraform', 'Python'].map((tech) => (
+                  {['MongoDB', 'Express.js', 'React', 'Node.js', 'Azure', 'AWS', 'Docker', 'Kubernetes', 'Terraform', 'ServiceNow', 'Python'].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm font-mono"
+                      className="px-3 py-1.5 bg-[#161616] text-[#b8b2a6] border border-[#2a2a2a] rounded text-sm font-mono hover:border-[#c8ff00] hover:text-[#c8ff00] transition-colors duration-200 cursor-default"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
 
-            {/* Right Column - Stats & Info */}
-            <motion.div variants={itemVariants} className="space-y-8">
+            {/* Right Column — Stats + Terminal (2 cols) */}
+            <motion.div variants={itemVariants} className="lg:col-span-2 space-y-6">
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-6">
-                {stats.map((stat, index) => (
+              <div className="grid grid-cols-2 gap-4">
+                {stats.map((stat) => (
                   <motion.div
                     key={stat.label}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-gray-700 p-6 rounded-lg text-center hover-lift"
+                    whileHover={{ scale: 1.03 }}
+                    className="bg-[#161616] border border-[#2a2a2a] p-5 rounded-lg text-center hover-border-accent"
                   >
-                    <stat.icon className="w-8 h-8 text-primary-400 mx-auto mb-3" />
-                    <div className="text-2xl font-bold text-white mb-1">
+                    <stat.icon className="w-5 h-5 text-[#c8ff00] mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-[#f0ede6] mb-0.5 font-serif">
                       {stat.value}
                     </div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-[#7d7568] text-xs font-mono uppercase tracking-wide">
                       {stat.label}
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Personal Info Card */}
+              {/* Terminal — Signature Element */}
               <motion.div
                 variants={itemVariants}
-                className="bg-gray-700 p-6 rounded-lg"
+                className="bg-[#141414] border border-[#2a2a2a] p-5 rounded-lg font-mono text-sm"
               >
-                <h3 className="text-xl font-semibold mb-4 text-primary-400">
-                  Personal Info
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <MapPin className="w-5 h-5 text-primary-400" />
-                    <span className="text-gray-300">{personalInfo.location}</span>
+                <div className="flex items-center space-x-2 mb-3 pb-2 border-b border-[#1f1f1f]">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#e63946]"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#c8ff00]/50"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#c8ff00]"></div>
+                  <span className="text-[#7d7568] text-xs ml-2">terminal</span>
+                </div>
+                <div className="space-y-1.5">
+                  <div className="text-[#7d7568]">
+                    <span className="text-[#c8ff00]">→</span> whoami
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Calendar className="w-5 h-5 text-primary-400" />
-                    <span className="text-gray-300">Looking for PFE opportunity</span>
+                  <div className="text-[#b8b2a6]">
+                    {personalInfo.name.toLowerCase().replace(' ', '_')}
                   </div>
-                </div>
-              </motion.div>
-
-              {/* Terminal-style Code Block */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-gray-900 p-6 rounded-lg font-mono text-sm"
-              >
-                <div className="text-gray-500 mb-2">
-                  <span className="text-primary-400">abdessamad@portfolio:~$</span> whoami
-                </div>
-                <div className="text-gray-300 mb-2">
-                  {personalInfo.name.toLowerCase().replace(' ', '_')}
-                </div>
-                <div className="text-gray-500 mb-2">
-                  <span className="text-primary-400">abdessamad@portfolio:~$</span> cat skills.txt
-                </div>
-                <div className="text-gray-300">
-                  MERN Stack | DevOps Engineer | AI Enthusiast | Azure | AWS | Docker | Kubernetes
+                  <div className="text-[#7d7568]">
+                    <span className="text-[#c8ff00]">→</span> cat role.txt
+                  </div>
+                  <div className="text-[#b8b2a6]">
+                    DevOps Engineer | Cloud Architect | Full-Stack Dev
+                  </div>
+                  <div className="text-[#7d7568]">
+                    <span className="text-[#c8ff00]">→</span> echo $STATUS
+                  </div>
+                  <div className="text-[#c8ff00]">
+                    Looking for PFE opportunity ●
+                  </div>
                 </div>
               </motion.div>
             </motion.div>

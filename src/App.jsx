@@ -14,7 +14,7 @@ import ScrollToTop from './components/common/ScrollToTop'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-900 text-white">
+      <div className="min-h-screen bg-[#0d0d0d] text-[#f0ede6]">
         <ScrollToTop />
         <Header />
         <main id="main-content" role="main" aria-label="Main content">
