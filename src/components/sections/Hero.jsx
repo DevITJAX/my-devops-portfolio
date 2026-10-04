@@ -5,12 +5,11 @@ import { personalInfo } from '../../data/personal'
 
 const Hero = () => {
   const roles = [
-    'DevOps Engineer',
-    'Cloud Solutions Architect',
     'ServiceNow Consultant',
+    'Cloud & DevOps Engineer',
+    'Certified ServiceNow CSA',
     'Full-Stack Developer',
-    'Kubernetes Specialist',
-    'CI/CD Pipeline Expert',
+    'CI/CD Pipeline Builder',
   ]
 
   const scrollToAbout = () => {

@@ -126,7 +126,7 @@ const About = () => {
                     <span className="text-[#c8ff00]">→</span> cat role.txt
                   </div>
                   <div className="text-[#b8b2a6]">
-                    DevOps Engineer | Cloud Architect | Full-Stack Dev
+                    Software Engineer | ServiceNow Consultant | Cloud & DevOps
                   </div>
                   <div className="text-[#7d7568]">
                     <span className="text-[#c8ff00]">→</span> echo $STATUS

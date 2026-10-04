@@ -1,4 +1,21 @@
 export const skillCategories = {
+  servicenow: {
+    title: "ServiceNow",
+    icon: "🧩",
+    skills: [
+      { name: "ITSM", level: 88 },
+      { name: "CSM", level: 85 },
+      { name: "HCLS", level: 82 },
+      { name: "Service Catalog", level: 88 },
+      { name: "Flow Designer", level: 88 },
+      { name: "Business Rules", level: 88 },
+      { name: "Client Scripts", level: 85 },
+      { name: "Script Includes", level: 85 },
+      { name: "UI Actions", level: 85 },
+      { name: "Virtual Agent", level: 80 },
+      { name: "Agent Workspace", level: 82 }
+    ]
+  },
   fullstack: {
     title: "Full-Stack Development",
     icon: "💻",

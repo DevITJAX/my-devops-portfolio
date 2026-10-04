@@ -99,7 +99,7 @@ export const certifications = [
     id: 9,
     title: "IBM DevOps and Software Engineering",
     issuer: "IBM",
-    date: "2024",
+    date: "2025",
     credentialId: "IBM-DEVOPS-2024",
     description: "Comprehensive professional certificate covering DevOps practices, software engineering principles, and modern development methodologies.",
     technologies: ["DevOps", "Software Engineering", "CI/CD", "IBM Cloud"],
@@ -117,6 +117,6 @@ export const certifications = [
     technologies: ["ServiceNow", "ITSM", "System Administration", "Platform Configuration", "IT Operations"],
     verificationUrl: "https://nowlearning.servicenow.com/",
     featured: true,
-    status: "preparing"
+    status: "earned"
   }
 ]
