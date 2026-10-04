@@ -104,7 +104,7 @@ const Contact = () => {
             {/* Left Column — Info (2 cols) */}
             <motion.div variants={itemVariants} className="lg:col-span-2 space-y-8">
               <p className="text-[#b8b2a6] text-lg leading-relaxed">
-                I'm currently looking for a PFE opportunity and would love to hear from you. 
+                I'm open to full-time opportunities and consulting projects, and would love to hear from you. 
                 Whether you have a question or just want to say hi — I'll get back to you.
               </p>
 

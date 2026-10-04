@@ -29,7 +29,7 @@ const About = () => {
   const stats = [
     { icon: Code, label: 'Projects', value: '10+' },
     { icon: Coffee, label: 'Coffee Cups', value: '1000+' },
-    { icon: Calendar, label: 'Year', value: '5th' },
+    { icon: Calendar, label: 'Graduated', value: '2026' },
     { icon: MapPin, label: 'Based In', value: 'Rabat' }
   ]
 
@@ -58,7 +58,7 @@ const About = () => {
             {/* Left Column — Bio (3 cols) */}
             <motion.div variants={itemVariants} className="lg:col-span-3 space-y-6">
               <p className="text-[#b8b2a6] text-lg leading-relaxed">
-                I'm a passionate and driven Computer Science Engineering student in my 5th year at EMSI, specializing in DevOps, Cloud Computing, and ServiceNow consulting. I have a strong interest in Infrastructure as Code, CI/CD pipelines, cloud-native solutions, and IT service management, and I enjoy exploring how these technologies can be integrated into modern applications.
+                I'm a passionate and driven Computer Science Engineer, a graduate of EMSI, specializing in DevOps, Cloud Computing, and ServiceNow consulting. I have a strong interest in Infrastructure as Code, CI/CD pipelines, cloud-native solutions, and IT service management, and I enjoy exploring how these technologies can be integrated into modern applications.
               </p>
               
               <p className="text-[#b8b2a6] text-lg leading-relaxed">
@@ -132,7 +132,7 @@ const About = () => {
                     <span className="text-[#c8ff00]">→</span> echo $STATUS
                   </div>
                   <div className="text-[#c8ff00]">
-                    Looking for PFE opportunity ●
+                    Open to full-time roles ●
                   </div>
                 </div>
               </motion.div>

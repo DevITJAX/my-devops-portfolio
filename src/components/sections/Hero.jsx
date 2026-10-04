@@ -36,7 +36,7 @@ const Hero = () => {
             className="mb-6"
           >
             <span className="font-mono text-sm text-[#c8ff00] tracking-widest uppercase">
-              Computer Science Engineering Student
+              Software Engineer
             </span>
           </motion.div>
 
@@ -76,7 +76,7 @@ const Hero = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="text-[#b8b2a6] text-lg max-w-2xl leading-relaxed mb-12"
           >
-            5th-year EMSI student specializing in DevOps, Cloud Computing, ServiceNow, and Full-Stack Development. 
+            EMSI computer science engineering graduate specializing in DevOps, Cloud Computing, ServiceNow, and Full-Stack Development. 
             Building robust, scalable infrastructure with Azure, Docker, Kubernetes, Terraform, and ServiceNow.
           </motion.p>
 
